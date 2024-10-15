@@ -14,27 +14,40 @@ body {
     padding: 0;
 }
 
+
 .bg {
-    background: linear-gradient(to right, #e91e63, #3151b5);
-    background-attachment: fixed;
-    /* Background stays fixed while scrolling */
+    
     background-size: cover;
-    /* Ensures background covers entire area */
     width: 100%;
     min-height: 100vh;
-    /* Covers at least the full viewport height */
     position: fixed;
-    /* Stays fixed on the screen */
+    background-image: url("../images/calc1.jpg");
     top: 0;
     left: 0;
     z-index: -1;
-    /* Sends background behind the content */
+    background-position: center center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    animation: addSecondImage 5s ease-in-out infinite; 
     animation: changeBackground 10s linear infinite;
-    /* Background color animation */
+    /* Switching between background images every 10 seconds */
 }
+@keyframes changeBackground {
+    0% {
+        background-image: url("../images/calc2.jpg"); /* First image */
+    }
+    100% {
+        background-image: url("../images/download.png"); /* Second image */
+    }
+}
+
 
 .title {
     margin-top: 25%;
+    animation: changeBackgrounds 10s linear infinite;
+    background-color: #3151b5;
+     border-radius: 50px;
+     border: 5px solid #3151b5;
 }
 .main {
     display: flex;
@@ -46,8 +59,12 @@ body {
     min-height: 100vh;
     position: relative; /* Change from absolute if previously set so */
     width: 100%;
-}
+  
 
+}
+.container{
+    animation: changeBackgrounds 10s linear infinite;
+}
 /* .main {
     display: flex;
     position: absolute;
@@ -109,7 +126,7 @@ body {
     text-align: center;
 }
 
-@keyframes changeBackground {
+@keyframes changeBackgrounds {
     0% {
         background: #e91e63;
     }
@@ -328,7 +345,7 @@ Animating title
 */
 .title {
     margin-top: 40px;
-    margin-bottom: 24px;
+    margin-bottom: 30px;
     color: #fff;
     font-family: 'Londrina Outline', sans-serif;
     font-size: 3rem;
